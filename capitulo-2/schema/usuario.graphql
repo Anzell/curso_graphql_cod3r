@@ -1,0 +1,12 @@
+type Usuario {
+  id: ID
+  nome: String!
+  email: String!
+  idade: Int
+  perfil: Perfil
+}
+
+type Perfil {
+  id: ID
+  nome: String
+}
