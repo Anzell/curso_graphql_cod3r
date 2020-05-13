@@ -4,6 +4,13 @@ type Usuario {
   email: String!
   idade: Int
   perfil: Perfil
+  status:UsuarioStatus
+}
+
+enum UsuarioStatus{
+  ATIVO
+  INATIVO
+  BLOQUEADO
 }
 
 type Perfil {
