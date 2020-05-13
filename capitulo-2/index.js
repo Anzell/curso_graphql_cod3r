@@ -5,19 +5,22 @@ const usuarios = [
         id: 1,
         nome: "João silva",
         email: "joaoSilva@hotmail.com",
-        idade: 29
+        idade: 29,
+        perfil_id:1
     },
     {
         id: 2,
         nome: "Mateus sad",
         email: "mateus@hotmail.com",
-        idade: 21
+        idade: 21,
+        perfil_id:2
     },
     {
         id: 3,
         nome: "Ana",
         email: "ana@hotmail.com",
-        idade: 23
+        idade: 23,
+        perfil_id:1
     }
 
 ];
@@ -58,6 +61,7 @@ const typeDefs = gql`
         nome: String!
         email: String!
         idade: Int
+        perfil:Perfil
     }
 
     type Produto{
@@ -69,6 +73,14 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
+
+    Usuario:{
+        perfil(usuario){
+            
+        const selecionados = perfis.filter(p=>p.id==usuario.perfil_id)
+        return selecionados ? selecionados [0] :null;
+        }
+    },
 
     Produto: {
         precoComDesconto(produto) {
