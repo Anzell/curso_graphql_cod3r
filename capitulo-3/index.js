@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server')
 const { importSchema } = require('graphql-import')
-const resolvers = require('./resolvers')
+const resolvers = require('./resolvers/index')
 
 const schemaPath = './schema/index.graphql'
 const server = new ApolloServer({

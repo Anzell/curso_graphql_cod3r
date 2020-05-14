@@ -9,6 +9,6 @@ type Mutation{
 
     alterarUsuario(
         filtro:UsuarioFiltro!
-        novosDados:UsuarioInput
+        novosDados:UsuarioInput!
     ):Usuario
 }

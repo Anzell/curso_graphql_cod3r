@@ -1,4 +1,4 @@
-const { usuarios, perfis } = require('../data/db')
+const { usuarios } = require('../../data/db')
 
 
 function indiceUsuario(filtro) {
@@ -25,13 +25,5 @@ module.exports = {
         }
         return usuarios[i]
         // return sels ? sels[0] : null
-    },
-    perfis() {
-        return perfis
-    },
-    perfil(_, { id }) {
-        const sels = perfis
-            .filter(p => p.id === id)
-        return sels ? sels[0] : null
     }
 }
