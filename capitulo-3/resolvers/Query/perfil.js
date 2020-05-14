@@ -1,12 +1,12 @@
 const { perfis } = require("../../data/db");
+const { indicePerfil } = require("../../functions/indices")
 
 module.exports = {
     perfis() {
         return perfis
     },
-    perfil(_, { id }) {
-        const sels = perfis
-            .filter(p => p.id === id)
-        return sels ? sels[0] : null
+    perfil(_, { filtro }) {
+        const i = indicePerfil(filtro, perfis);
+        return perfis[i];
     }
 }
