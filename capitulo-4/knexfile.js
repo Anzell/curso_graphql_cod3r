@@ -1,17 +1,17 @@
 // Update with your config settings.
-// const connection = require("./.env")
+
 module.exports = {
-  client: "mysql",
+  client: 'mysql',
   connection: {
-    database: "exercicios",
-    user: "root",
-    password: "12345678",
-},
+    database: 'desafio-cap-04',
+    user:     'root',
+    password: '12345678'
+  },
   pool: {
     min: 2,
-    max: 10,
+    max: 10
   },
   migrations: {
-    tableName: "knex_migrations",
-  },
+    tableName: 'knex_migrations'
+  }
 };
