@@ -13,7 +13,24 @@ async function salvarUsuario(nome, email, senha) {
   await db("usuarios").update({ nome, senha }).where({ email });
 
   return await db("usuarios").where({ email }).first();
-  //perfil usuario
+  //perfil usuario  
+
+  //solução professor
+  /*
+    let usuario = awair db("usuarios").where({email}).first()
+    if(!usuario){
+        let [id]= await db("usuarios").insert({nome,email,senha})
+        usuario = await db("usuarios").where({id}).first()
+        
+    }else{
+        await db("usuarios").where({id:usuario.id}).update({nome,email,senha})
+        usuario ={...usuario,nome,email,senha}
+    }
+
+    return usuario
+
+
+  */
 }
 
 async function salvarPerfil(nome, rotulo) {
@@ -28,6 +45,23 @@ async function salvarPerfil(nome, rotulo) {
 
   return await db("perfis").insert({ nome, rotulo });
   //return perfil
+
+  /*
+  solução professor
+    let perfil = await db("perfis").where({nome}).first()
+    
+    if(!perfil){
+        let [ id] = await db("perfis").inser({nome,rotulo})
+        perfil = await db("perfis").where({id}).first()
+    
+    }else{
+        await db("perfis").where({id:perfil.id}).update({id:perfil.id})
+        perfil ={...perfil,nome,rotulo}
+    }
+
+    return perfil
+
+  */
 }
 
 async function adicionarPerfis(usuario, ...perfis) {
@@ -49,7 +83,17 @@ async function adicionarPerfis(usuario, ...perfis) {
       });
     }
   }
-  // for(perfil of perfis){}
+  /*
+  const usuario_id=usuario.id
+  await db("usuarios_perfis")
+    .where({usuario_id})
+    .delete()
+  
+  for(pefil of perfis){
+      const perfil_id = perfil.id
+      await db("usuarios_perfis").insert({usuario_id,perfil_id})
+  }
+  */
 }
 
 async function executar() {
