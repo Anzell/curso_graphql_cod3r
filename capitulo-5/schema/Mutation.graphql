@@ -27,4 +27,8 @@ type Mutation {
         filtro: PerfilFiltro!
         dados: PerfilInput!
     ): Perfil
+
+    registrarUsuario(
+        dados:UsuarioRegistrarInput!
+    ):Usuario!
 }
